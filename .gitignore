@@ -1,0 +1,80 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.venv
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Build outputs
+.next/
+out/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+postgres_data/
+postgis_data/
+
+# OS
+.DS_Store
+Thumbs.db
+*.temp
+
+# Virtual environments
+gdg/
+.venv/
+
+# Docker
+.dockerignore
+
+# Node
+.node-version
+.npmrc
+.pnpmfile.cjs
+pnpm-lock.yaml
+
+# Testing
+.coverage
+.pytest_cache/
+htmlcov/
+
+# ML Models
+*.pkl
+*.joblib
+*.h5
+*.model
+
+# Temporary files
+*.tmp
+*.bak
+.cache/
+
+# IDE settings that should not be committed
+.vscode/settings.json

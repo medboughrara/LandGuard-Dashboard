@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+# GitHub Push Script for LandGuard Dashboard
+# This script will guide you through pushing to GitHub
+
+echo "=========================================="
+echo "   LandGuard Dashboard - GitHub Push"
+echo "=========================================="
+echo ""
+
+# Check if git is installed
+if ! command -v git &> /dev/null; then
+    echo "❌ Git not found. Please install Git first."
+    exit 1
+fi
+
+echo "✅ Git found: $(git --version)"
+echo ""
+
+# Check if already a git repo
+if [ -d .git ]; then
+    echo "ℹ️  This is already a git repository"
+    echo "Remote: $(git remote -v 2>/dev/null || echo 'None set')"
+else
+    echo "📝 Initializing git repository..."
+    git init
+    echo "✅ Git initialized"
+fi
+
+echo ""
+echo "📋 Git Status:"
+git status
+
+echo ""
+echo "=========================================="
+echo "   PUSH TO GITHUB - NEXT STEPS"
+echo "=========================================="
+echo ""
+echo "1️⃣  Create a new repository on GitHub:"
+echo "   → Visit: https://github.com/new"
+echo "   → Name it: landguard"
+echo "   → Click 'Create repository'"
+echo ""
+echo "2️⃣  Copy your repository URL (HTTPS or SSH)"
+echo ""
+echo "3️⃣  Add remote and push:"
+echo ""
+echo "   # Replace YOUR_USERNAME with your GitHub username"
+echo "   git remote add origin https://github.com/YOUR_USERNAME/landguard.git"
+echo "   git branch -M main"
+echo "   git push -u origin main"
+echo ""
+echo "4️⃣  Verify on GitHub:"
+echo "   → Visit: https://github.com/YOUR_USERNAME/landguard"
+echo ""
+echo "=========================================="
+echo "   DOCUMENTATION PROVIDED"
+echo "=========================================="
+echo ""
+echo "📖 README.md                           - Main documentation"
+echo "📖 SETUP.md                            - Installation guide"
+echo "📖 CONTRIBUTING.md                     - Contributing guidelines"
+echo "📖 SECURITY.md                         - Security policy"
+echo "📖 PROJECT.md                          - Project overview"
+echo "📖 QUICK_REFERENCE.md                  - Quick start guide"
+echo "📖 GITHUB_PUSH_CHECKLIST.md            - Pre-push checklist"
+echo "📖 PROJECT_DOCUMENTATION_SUMMARY.md    - Documentation summary"
+echo "📖 LICENSE                             - MIT License"
+echo "📖 .gitignore                          - Git ignore patterns"
+echo ""
+echo "=========================================="
+echo "   TECH STACK"
+echo "=========================================="
+echo ""
+echo "Frontend:  Next.js 16 + React 19 + TypeScript"
+echo "UI:        Tailwind CSS + Radix UI"
+echo "Mapping:   Leaflet.js"
+echo "Backend:   FastAPI + Uvicorn"
+echo "ML:        XGBoost"
+echo "Database:  PostgreSQL + PostGIS"
+echo "Container: Docker Compose"
+echo ""
+echo "=========================================="
+echo "   QUICK COMMANDS"
+echo "=========================================="
+echo ""
+echo "Frontend:"
+echo "  cd frontend && pnpm install && pnpm dev"
+echo ""
+echo "Backend:"
+echo "  cd gdg_hackthon && python -m venv venv"
+echo "  source venv/bin/activate"
+echo "  pip install -r requirements.txt"
+echo "  uvicorn api:app --reload"
+echo ""
+echo "Database:"
+echo "  docker-compose up -d"
+echo ""
+echo "=========================================="
+echo ""
+echo "✨ Project is ready for GitHub! 🚀"
+echo ""
+echo "Questions? Check the documentation files above."
+echo ""
