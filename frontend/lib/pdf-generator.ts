@@ -106,7 +106,6 @@ export function generateRiskReportPDF({ hexagon, aiReport, topNewsArticles }: Ge
     addText("AI-Generated Risk Analysis", 16, true)
     yPosition -= 3
 
-    doc.setFillColor(240, 240, 240)
     const reportLines = doc.splitTextToSize(aiReport, contentWidth - 10)
     const reportHeight = reportLines.length * 4 + 10
 
@@ -115,6 +114,7 @@ export function generateRiskReportPDF({ hexagon, aiReport, topNewsArticles }: Ge
         // Split report across pages
         doc.setFontSize(10)
         doc.setFont("helvetica", "normal")
+        doc.setTextColor(0, 0, 0)
         let currentLine = 0
 
         while (currentLine < reportLines.length) {
@@ -123,7 +123,13 @@ export function generateRiskReportPDF({ hexagon, aiReport, topNewsArticles }: Ge
             const linesPerPage = Math.floor(remainingSpace / 4)
             const pageLines = reportLines.slice(currentLine, currentLine + linesPerPage)
 
-            doc.rect(margin, yPosition, contentWidth, pageLines.length * 4 + 10, "F")
+            // Draw border instead of filled rectangle
+            doc.setDrawColor(200, 200, 200)
+            doc.setLineWidth(0.5)
+            doc.rect(margin, yPosition, contentWidth, pageLines.length * 4 + 10, "S")
+
+            // Add text
+            doc.setTextColor(0, 0, 0)
             doc.text(pageLines, margin + 5, yPosition + 7)
 
             yPosition += pageLines.length * 4 + 15
@@ -135,9 +141,15 @@ export function generateRiskReportPDF({ hexagon, aiReport, topNewsArticles }: Ge
             }
         }
     } else {
-        doc.rect(margin, yPosition, contentWidth, reportHeight, "F")
+        // Draw border instead of filled rectangle
+        doc.setDrawColor(200, 200, 200)
+        doc.setLineWidth(0.5)
+        doc.rect(margin, yPosition, contentWidth, reportHeight, "S")
+
+        // Add text
         doc.setFontSize(10)
         doc.setFont("helvetica", "normal")
+        doc.setTextColor(0, 0, 0)
         doc.text(reportLines, margin + 5, yPosition + 7)
         yPosition += reportHeight + 10
     }
