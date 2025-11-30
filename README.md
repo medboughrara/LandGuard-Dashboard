@@ -163,7 +163,7 @@ The API will be available at `http://localhost:8000`
 
 **POST `/predict`** (FastAPI Backend)
 
-Request:
+Request(exmpl):
 ```json
 {
   "data": [
